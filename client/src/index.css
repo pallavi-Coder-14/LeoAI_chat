@@ -1,0 +1,25 @@
+/* Global reset — kept intentionally minimal so App.css owns all
+   app-specific styling. (Previously this file had leftover .user /
+   .bot / .container / .chat-box / input / button rules from an
+   older prototype that collided with the real class names used in
+   App.jsx — e.g. every message div gets class "user" or "bot" from
+   `msg ${m.sender}`, so those old rules were painting a stray
+   colored background behind every chat bubble. Removed.) */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #0d0d0dfb;
+  -webkit-font-smoothing: antialiased;
+}
