@@ -6,7 +6,7 @@ import path from "path";
 import http from "http"; // Needed for socket.io
 
 import chatRoutes from "./routes/chatRoutes.js";
-import authRoutes from "./routes/authroutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config({ path: path.resolve("./.env") });
 
