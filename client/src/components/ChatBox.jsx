@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000"); // Backend URL
+const socket = io("https://leoai-chat.onrender.com"); // Backend URL
 
 export default function ChatBox({ chat, onUpdateChat }) {
   const [message, setMessage] = useState("");
