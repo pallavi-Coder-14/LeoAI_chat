@@ -23,10 +23,27 @@ app.use(express.json());
 app.use("/api/chat", chatRoutes);
 app.use("/api/auth", authRoutes);
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URL)
+// MongoDB connection (Debug)
+console.log("========== ENV DEBUG ==========");
+console.log("MONGO_URL exists:", !!process.env.MONGO_URL);
+console.log("MONGO_URL value:", process.env.MONGO_URL);
+console.log(
+  "Environment Keys:",
+  Object.keys(process.env).filter(
+    (key) =>
+      key.includes("MONGO") ||
+      key.includes("GROQ") ||
+      key.includes("JWT")
+  )
+);
+console.log("===============================");
+
+mongoose
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("✅ MongoDB connected"))
-  .catch(err => console.error("❌ MongoDB connection error:", err.message));
+  .catch((err) =>
+    console.error("❌ MongoDB connection error:", err.message)
+  );
 
 // Socket.IO connection
 io.on("connection", (socket) => {
